@@ -1,6 +1,5 @@
 import numpy as np
 
-
 # euclidean distance
 def e_dist(v1, v2):
     d = 0
