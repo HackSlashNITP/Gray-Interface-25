@@ -1,72 +1,112 @@
-Vector Distance Calculator
+# 🏪 Pima Indians Diabetes Classification
 
-This Python script calculates various distance metrics and the angle between two input vectors.
-It uses NumPy for numerical computations and supports the following metrics:
+## 📌 Objective
 
-1.Euclidean Distance
+To predict whether a patient has diabetes using diagnostic data like glucose level, insulin, BMI, age, etc. The dataset is sourced from the [UCI Pima Indians Diabetes Database](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database).
 
-2.Manhattan Distance
+---
 
-3.Cosine Distance
+## 🧹 Data Cleaning & Preprocessing
 
-4.Angle Between Vectors (in degrees)
+### ⚠ Handling Biologically Impossible Values
 
-🧮 Features
+The following features had instances of 0 which are **not biologically valid**:
 
-Handles vector inputs of any dimensionality (as long as both vectors are of equal length).
+| Feature       | Zero Count |
+| ------------- | ---------- |
+| Glucose       | 5          |
+| Insulin       | 374        |
+| SkinThickness | 227        |
+| BMI           | 11         |
+| BloodPressure | 35         |
 
-Implements custom functions for distance and angle calculations using basic NumPy operations.
+### 🔧 Imputation Strategy
 
-Provides user-friendly input prompts.
+* **Glucose, BMI, BloodPressure**:
 
-📦 Requirements
+  * Very few invalid values → Replaced with **median** of the entire column.
 
-Python 3.x
-NumPy
-Install NumPy (if not already installed):
+* **Insulin & SkinThickness**:
 
-bash
-pip install numpy
+  * Many zero values → Replaced using **age-grouped median**:
 
-🚀 How to Use
+    * Age groups: `21–30`, `31–40`, `41–50`, `51–60`, `61–70`, `71–81`
+  * If a group's median was also 0 → used **overall column median** as fallback.
 
-Run the script:
+---
 
-bash
-python Task1.py
+## ⚙️ Feature Scaling
 
-Enter the two vectors when prompted. Separate each component with a space:
+Used **StandardScaler** to normalize features for better performance in distance-based models.
 
-Enter vector 1 : 1 2 3
-Enter vector 2 : 4 5 6
+| Model                    | Scaling Effect            |
+| ------------------------ | ------------------------- |
+| Logistic Regression      | No significant change     |
+| Random Forest Classifier | No significant change     |
+| K-Nearest Neighbors      | ✅ Significant improvement |
 
-Output:
+---
 
-Results:
-Euclidean Distance: 5.196152422706632
-Manhattan Distance: 9.0
-Cosine Distance: 0.025368153802923787
-Angle Between Vectors (degrees): 12.933154491899135
+## 🤖 Models Used
 
-📄 Functions Explained
+| Model                    | Accuracy  | Precision | Recall    | F1 Score  |
+| ------------------------ | --------- | --------- | --------- | --------- |
+| Logistic Regression      | 0.766     | 0.655     | 0.679     | 0.667     |
+| Random Forest Classifier | **0.770** | **0.660** | **0.710** | **0.680** |
+| K-Nearest Neighbors      | 0.760     | 0.667     | 0.655     | 0.661     |
 
-1.euclidean_distance(vec1, vec2): Calculates the L2 norm (straight-line distance).
+✅ **Random Forest Classifier performed the best overall.**
 
-2.Manhattan_distance(vec1, vec2): Computes the L1 norm (sum of absolute differences).
+---
 
-3.magnitude(vec): Helper function to compute the magnitude of a vector.
+## 🔍 Feature Importance (Random Forest)
 
-4.cosine_distance(vec1, vec2): Calculates 1 - cosine similarity.
+Most influential features:
 
-5.angle_between_vectors(vec1, vec2): Returns the angle in degrees using the arccos of cosine similarity.
+1. **Glucose**
+2. **Insulin**
+3. **Age**
+4. **BMI**
+5. **Blood Pressure**
 
-🛑 Error Handling
+---
 
-Ensures both vectors are of the same length before computation.
+## 🧪 Hyperparameter Tuning
 
-If they aren't, it outputs an error message and terminates further calculations.
+* Tried tuning `RandomForest` model.
+* Observation: **Hyperparameter tuning sometimes decreased performance** due to overfitting or inappropriate combinations.
 
-📁 File Structure
+---
 
-Task1.py
-README.md
+## 💡 Why Did Random Forest Perform Better?
+
+### 🌳 1. Strong Ensemble Power
+
+* Random Forest averages multiple trees → reduces variance and overfitting.
+* Handles **non-linear relationships** better than Logistic Regression.
+
+### ⚖️ 2. Captures Feature Interactions
+
+* Can learn relationships like: *"high glucose + low insulin → higher risk"*.
+* Logistic Regression can't learn such combinations.
+
+### 🤊 3. Not Affected by Feature Scale
+
+* Unlike KNN and Logistic Regression, Random Forest doesn’t need feature scaling.
+
+### 🌟 4. Robust to Outliers & Imputations
+
+* Performs well despite the imputed zero-values in features like Insulin.
+
+### 🧠 5. Handles Noise & Ranks Features
+
+* Ignores irrelevant features naturally → reduces overfitting and enhances interpretability.
+
+---
+
+## 🔗 Google Colab Notebook
+
+You can view and run the complete analysis on Google Colab:
+
+👈 [Open in Colab](https://colab.research.google.com/drive/1CqmYi0SLOzZy5eQ3R1cn2yJlgLtstqiq?usp=sharing)
+
