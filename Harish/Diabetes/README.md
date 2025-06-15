@@ -60,7 +60,7 @@ The notebook includes:
 - Heat map for correlation among features.
 ![Figure: Heatmap showing correlation among features](heatmap.png)
 - Boxplot, Histograph, Violin and KDE graph to analyze the distribution of data.
-![Figure: Boxplot, Histograph, Violin and KDE graph](plot_feature.png)
+![Figure: Boxplot, Histograph, Violin and KDE graph](plot_Feature.png)
 - Plotting the pair graph to analyze the data distribution on the basis of outcome.
 ![Figure: Pair plot](Pair_plot.png)
 - Confusion matrix.
