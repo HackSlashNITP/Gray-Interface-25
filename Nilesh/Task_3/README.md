@@ -10,8 +10,7 @@ https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset
 
 ---
 ## Source Code
-https://colab.research.google.com/drive/1zy_OuV0m7_6T4gthwD_Co5EXPi_ngjUS?usp=chrome_ntp#scrollTo=ZBJ2r13FZJn9
-
+https://colab.research.google.com/drive/1zy_OuV0m7_6T4gthwD_Co5EXPi_ngjUS?usp=sharing
 ---
 ## Libraries Used
 
