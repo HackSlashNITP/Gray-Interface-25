@@ -107,8 +107,6 @@ SVC, while useful, does not provide transparent feature contribution paths, whic
 
 This project demonstrates the importance of not only building **accurate predictive models** but also ensuring that those models can be **trusted and explained**. SHAP bridges this gap effectively, especially with tree-based models like Random Forest.
 
-> ✨ Whether used in educational counseling, HR analytics, or self-awareness tools, explainable AI helps build systems that are **ethical, reliable, and insightful**.
-
 ---
 
 ## 📂 Files in this Repository
