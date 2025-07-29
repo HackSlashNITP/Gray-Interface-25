@@ -5,7 +5,7 @@ This project focuses on building a machine learning-based web application to pre
 ## 📁 Dataset
 
 - **Source**: [UCI Heart Disease Dataset](https://archive.ics.uci.edu/ml/datasets/heart+Disease)
-- **File Used**: `heart_disease_uci.csv`
+- **File Used**: https://www.kaggle.com/datasets/redwankarimsony/heart-disease-data
 - **Target**: Presence (1) or absence (0) of heart disease
 
 ## 📊 Model Evaluation

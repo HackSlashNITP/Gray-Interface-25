@@ -6,8 +6,7 @@ This is a content-based song recommender system built using the **Top Spotify So
 
 ## 📁 Dataset
 
-- **Source**: [Kaggle - Top Spotify Songs 2023](https://www.kaggle.com/datasets/muhmores/spotify-top-2023)
-- **File Used**: `spotify-2023.csv`
+- **Source**: [Kaggle - Top Spotify Songs 2023](https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023)
 - **Encoding**: `cp1252` (to correctly read special characters)
 
 ---
@@ -36,6 +35,9 @@ The system uses the following features for similarity calculation:
 - **Scaler**: `MinMaxScaler` from scikit-learn
 
 ### 🧪 Example Usage
+
+# Kaggle Link:
+https://www.kaggle.com/code/adityamishra2505/notebook86e10f8c6f
 
 ```python
 get_recommendations("Flowers")
