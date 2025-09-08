@@ -39,7 +39,28 @@ The goal is to **hard-code the forward and backward passes** without using deep 
    - Full-batch training across 2000 epochs.  
 
 4. **Prediction**  
-   - After training, the model can predict the sum of two unseen numbers.  
+   - After training, the model can predict the sum of two unseen numbers. 
+
+###🧠 Mathematical Background
+
+#Forward pass:
+
+z1 = X · W1 + b1
+a1 = ReLU(z1)
+z2 = a1 · W2 + b2
+y_pred = z2
+
+#Loss:
+
+L = mean((y_true - y_pred)^2)
+
+#Backpropagation:
+
+dL/dW2 = a1ᵀ · dL/dy
+dL/db2 = sum(dL/dy)
+dL/dW1 = Xᵀ · (dL/dz1)
+dL/db1 = sum(dL/dz1)
+ 
 
 ---
 
@@ -50,22 +71,3 @@ The goal is to **hard-code the forward and backward passes** without using deep 
 git clone https://github.com/your-username/addition-nn.git
 cd addition-nn
 
-###🧠 Mathematical Background
-
-Forward pass:
-
-z1 = X · W1 + b1
-a1 = ReLU(z1)
-z2 = a1 · W2 + b2
-y_pred = z2
-
-Loss:
-
-L = mean((y_true - y_pred)^2)
-
-Backpropagation:
-
-dL/dW2 = a1ᵀ · dL/dy
-dL/db2 = sum(dL/dy)
-dL/dW1 = Xᵀ · (dL/dz1)
-dL/db1 = sum(dL/dz1)
