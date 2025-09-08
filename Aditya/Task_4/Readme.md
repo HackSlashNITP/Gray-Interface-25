@@ -8,7 +8,7 @@ The goal is to **hard-code the forward and backward passes** without using deep 
 
 ## ✨ Features
 - Minimal neural network: 2 inputs → 1 hidden layer → 1 output  
-- Manual backpropagation (no autograd)  
+- Manual backpropagation 
 - Mean Squared Error (MSE) loss  
 - ReLU activation in the hidden layer  
 - Gradient descent updates  
@@ -41,25 +41,25 @@ The goal is to **hard-code the forward and backward passes** without using deep 
 4. **Prediction**  
    - After training, the model can predict the sum of two unseen numbers. 
 
-###🧠 Mathematical Background
+##🧠 Mathematical Background
 
-#Forward pass:
+1. **Forward pass:**
 
-z1 = X · W1 + b1
-a1 = ReLU(z1)
-z2 = a1 · W2 + b2
-y_pred = z2
+   -z1 = X · W1 + b1
+   -a1 = ReLU(z1)
+   -z2 = a1 · W2 + b2
+   -y_pred = z2
 
-#Loss:
+2. **Loss:**
 
-L = mean((y_true - y_pred)^2)
+   -L = mean((y_true - y_pred)^2)
 
-#Backpropagation:
+3. **Backpropagation:**
 
-dL/dW2 = a1ᵀ · dL/dy
-dL/db2 = sum(dL/dy)
-dL/dW1 = Xᵀ · (dL/dz1)
-dL/db1 = sum(dL/dz1)
+   -dL/dW2 = a1ᵀ · dL/dy
+   -dL/db2 = sum(dL/dy)
+   -dL/dW1 = Xᵀ · (dL/dz1)
+   -dL/db1 = sum(dL/dz1)
  
 
 ---
