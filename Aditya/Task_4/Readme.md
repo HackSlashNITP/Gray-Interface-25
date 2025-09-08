@@ -60,30 +60,37 @@ z2 = a1 · W2 + b2
 y_{pred} = z2
 \]  
 
-### Loss Function
-\[
-L = \text{mean}\big((y_{true} - y_{pred})^2\big)
-\]  
+### 📉 Loss Function
+We use **Mean Squared Error (MSE):**
 
-### Backpropagation
 \[
-\frac{\partial L}{\partial W2} = a1^T · \frac{\partial L}{\partial y}
-\]  
-\[
-\frac{\partial L}{\partial b2} = \text{sum}\left(\frac{\partial L}{\partial y}\right)
-\]  
-\[
-\frac{\partial L}{\partial W1} = X^T · \frac{\partial L}{\partial z1}
-\]  
-\[
-\frac{\partial L}{\partial b1} = \text{sum}\left(\frac{\partial L}{\partial z1}\right)
-\]  
+L = \frac{1}{n} \sum_{i=1}^{n} (y_{\text{true}}^{(i)} - y_{\text{pred}}^{(i)})^2
+\]
 
 ---
+
+### 🔄 Backpropagation
+Gradients for updating the weights and biases:
+
+\[
+\partial L / \partial W_2 = a_1^T \cdot \partial L / \partial y
+\]
+
+\[
+\partial L / \partial b_2 = \sum (\partial L / \partial y)
+\]
+
+\[
+\partial L / \partial W_1 = X^T \cdot \partial L / \partial z_1
+\]
+
+\[
+\partial L / \partial b_1 = \sum (\partial L / \partial z_1)
+\]
 
 ## 🚀 Usage
 
 ### 1. Clone repository
 ```bash
-git clone https://github.com/your-username/addition-nn.git
+git clone https://github.com/Aditya-043-nit/Gray-Interface-25.git
 cd addition-nn
