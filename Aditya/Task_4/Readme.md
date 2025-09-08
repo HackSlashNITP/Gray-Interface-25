@@ -93,4 +93,4 @@ Gradients for updating the weights and biases:
 ### 1. Clone repository
 ```bash
 git clone https://github.com/Aditya-043-nit/Gray-Interface-25.git
-cd addition-nn
+cd Aditya/Task_4
