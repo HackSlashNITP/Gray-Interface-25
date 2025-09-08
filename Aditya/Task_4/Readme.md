@@ -17,7 +17,7 @@ The goal is to **hard-code the forward and backward passes** without using deep 
 ---
 
 ## 📂 Project Structure
-├── add_nn.py # Main Python script with model and training
+├── Task_4.py # Main Python script with model and training
 ├── README.md # Project documentation
 
 ---
@@ -50,7 +50,7 @@ The goal is to **hard-code the forward and backward passes** without using deep 
 git clone https://github.com/your-username/addition-nn.git
 cd addition-nn
 
-🧠 Mathematical Background
+###🧠 Mathematical Background
 
 Forward pass:
 
